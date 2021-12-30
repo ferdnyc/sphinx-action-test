@@ -14,17 +14,23 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     # Standard drop-in approach that should work for most people.
-    - uses: ammaraskar/sphinx-action@0.4
+    - uses: ferdnyc/sphinx-action@controlled-apt
       with:
         docs-folder: "docs/"
+        update: true
     # Grabbing custom dependencies and building as a pdf.
-    - uses: ammaraskar/sphinx-action@0.4
+    - uses: ferdnyc/sphinx-action@controlled-apt
       with:
-        pre-build-command: "apt-get latexmk texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended"
+        install:
+          - latexmk
+          - librsvg2-bin
+          - texlive-latex-recommended
+          - texlive-latex-extra
+          - texlive-fonts-recommended
         build-command: "make latexpdf"
         docs-folder: "docs2/"
     # Example of using a custom build-command.
-    - uses: ammaraskar/sphinx-action@0.4
+    - uses: ferdnyc/sphinx-action@controlled-apt
       with:
         build-command: "sphinx-build -b html . _build"
         docs-folder: "docs2/"
