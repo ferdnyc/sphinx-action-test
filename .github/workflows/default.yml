@@ -20,14 +20,14 @@ jobs:
     # Grabbing custom dependencies and building as a pdf.
     - uses: ferdnyc/sphinx-action@controlled-apt
       with:
-        pdflatex: true
+        container: pdflatex
         install: librsvg2-bin
         build-command: "make latexpdf"
         docs-folder: "docs2/"
     # Example of using a custom build-command.
     - uses: ferdnyc/sphinx-action@controlled-apt
       with:
-        sphinx4: true
+        container: sphinx4
         build-command: "sphinx-build -b html . _build"
         docs-folder: "docs2/"
     # Great extra actions to compose with:
