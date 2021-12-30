@@ -21,12 +21,12 @@ jobs:
     # Grabbing custom dependencies and building as a pdf.
     - uses: ferdnyc/sphinx-action@controlled-apt
       with:
-        install:
-          - latexmk
-          - librsvg2-bin
-          - texlive-latex-recommended
-          - texlive-latex-extra
-          - texlive-fonts-recommended
+        install: >-
+          latexmk
+          librsvg2-bin
+          texlive-latex-recommended
+          texlive-latex-extra
+          texlive-fonts-recommended
         build-command: "make latexpdf"
         docs-folder: "docs2/"
     # Example of using a custom build-command.
