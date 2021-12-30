@@ -17,7 +17,6 @@ jobs:
     - uses: ferdnyc/sphinx-action@controlled-apt
       with:
         docs-folder: "docs/"
-        update: true
     # Grabbing custom dependencies and building as a pdf.
     - uses: ferdnyc/sphinx-action@controlled-apt
       with:
